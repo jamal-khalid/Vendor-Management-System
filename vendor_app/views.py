@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from datetime import datetime 
 from .signals import update_average_response_time
+from rest_framework.authentication import TokenAuthentication 
+from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
