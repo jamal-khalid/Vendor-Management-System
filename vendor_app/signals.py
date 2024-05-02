@@ -3,6 +3,13 @@ from django.dispatch import receiver
 from .models import PurchaseOrder, Vendor, HistoricalPerformance
 from django.db.models import Avg, Count
 from django.utils import timezone
+from django.contrib.auth.models import User 
+from rest_framework.authtoken.models import Token
+
+@receiver(post_save, sender=User)
+def create_auth_token(sender, instance=None, created=False, **kwargs):
+    if created:
+        Token.objects.create(user=instance)
 
 @receiver(post_save, sender=PurchaseOrder)
 def update_vendor_performance_metrics(sender, instance, created, **kwargs):
