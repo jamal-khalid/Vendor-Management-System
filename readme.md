@@ -1,4 +1,4 @@
-Django REST API Setup
+### Django REST API Setup
 This repository contains a Django project with a RESTful API using Django REST Framework.
 
 Prerequisites
